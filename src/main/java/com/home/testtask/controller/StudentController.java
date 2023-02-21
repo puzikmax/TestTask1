@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -22,7 +23,8 @@ public class StudentController {
     private final StudentService studentService;
 
     @GetMapping("/all")
-    public List<Student> getAllStudents() {return studentService.getStudents(); }
+    public ResponseEntity<List<Student>> getAllStudents() {
+        return ResponseEntity.ok(studentService.getStudents()); }
 
     @PostMapping("/add")
     public ResponseEntity<Student> addStudent(@RequestBody Student student){
