@@ -15,4 +15,10 @@ public class TeacherServiceImpl implements TeacherService {
     public List<Teacher> getAllTeacher() {
         return teacherRepository.findAll();
     }
+    public Teacher addTeacher(Teacher teacher){
+        return teacherRepository.save(teacher);
+    }
+    public void deleteTeacher(Long id){
+        teacherRepository.deleteById(id);
+    }
 }
