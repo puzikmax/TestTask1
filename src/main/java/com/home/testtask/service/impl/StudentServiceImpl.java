@@ -1,5 +1,6 @@
 package com.home.testtask.service.impl;
 
+import com.home.testtask.dto.StudentDto;
 import com.home.testtask.entity.Student;
 import com.home.testtask.repository.StudentRepository;
 import com.home.testtask.service.StudentService;
@@ -17,5 +18,15 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public List<Student> getStudents() {
         return studentRepository.findAll();
+    }
+
+    @Override
+    public Student addStudent(Student student) {
+        return studentRepository.save(student);
+    }
+
+    @Override
+    public void deleteStudentById(Long id) {
+        studentRepository.deleteById(id);
     }
 }

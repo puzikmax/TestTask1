@@ -38,8 +38,8 @@ public class Student {
     private String fathername;
 
     @Column(name = "dateofbirghtday")
-    private LocalDate dateOfBirgthday;
+    private LocalDate dateofbirghtday;
 
     @Column(name = "sex")
-    private Enum<Sex> sex;
+    private String sex;
 }
