@@ -1,14 +1,11 @@
 package com.home.testtask.entity;
 
-import com.home.testtask.entity.enums.Sex;
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.hibernate.annotations.GeneratorType;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,7 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.Date;
+import java.time.LocalDate;
 @Entity
 @NoArgsConstructor
 @Getter
@@ -27,8 +24,8 @@ import java.util.Date;
 @Table(name = "teacher")
 public class Teacher {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "name")
@@ -41,7 +38,7 @@ public class Teacher {
     private String fathername;
 
     @Column(name = "dateofbirghtday")
-    private Date dateOfBirghtday;
+    private LocalDate dateOfBirghtday;
 
     @Column(name = "sex")
     private String sex;
