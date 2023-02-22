@@ -1,6 +1,5 @@
 package com.home.testtask.controller;
 
-import com.home.testtask.dto.StudentDto;
 import com.home.testtask.entity.Student;
 import com.home.testtask.service.StudentService;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
