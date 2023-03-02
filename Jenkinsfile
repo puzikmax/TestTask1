@@ -8,7 +8,7 @@ pipeline {
       }
     }
     stage('Docker Run') {
-        agent{ docker
+        agent any
       steps {
         sh 'docker run school -p 8081:8081 -p 50002:50002'}
         }
