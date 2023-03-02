@@ -1,21 +1,16 @@
 pipeline {
 	agent none
   stages {
-  	stage('Maven Install') {
-    	agent {
-      	docker {
-        	image 'maven:3.5.0'
-        }
-      }
-      steps {
-      	sh 'mvn clean install'
-      }
-    }
     stage('Docker Build') {
     	agent any
       steps {
-      	sh 'docker build -t school:latest .'
+      	sh 'docker build -t school:latest'
       }
     }
+    stage('Docker Run') {
+        agent{ docker
+      steps {
+        sh 'docker run school -p 8081:8081 -p 50002:50002'}
+        }
   }
 }
