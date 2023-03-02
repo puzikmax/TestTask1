@@ -4,7 +4,7 @@ pipeline {
     stage('Docker Build') {
     	agent any
       steps {
-      	sh 'docker build school:latest'
+      	sh 'docker build school'
       }
     }
     stage('Docker Run') {
