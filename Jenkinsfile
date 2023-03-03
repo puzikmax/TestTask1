@@ -14,7 +14,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                 sh 'docker login --username puziikmax --password Ass480883z'
+                 sh 'docker login --username ${LOCAL_USER_NAME} --password ${LOCAL_USER_PASS}'
                  sh 'docker build -f Dockerfile --tag school:MyApp .'
                  sh 'docker image tag school:MyApp'
                  sh 'docker push puziikmax/myschoolapp'
