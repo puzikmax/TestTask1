@@ -26,17 +26,17 @@ pipeline {
             }
         }
 
-        stage('Deploy'){
+        stage('Deploy') {
             steps {
                 echo 'Deploy'
                     sh 'docker pull puziikmax/myschoolapp:tagname'
                     sh 'docker run --rm -p 8081:8081 -p 50001:50001 --name school/myschoolapp'
                 }
             }
-        stage('Cleanup'){
+        stage('Cleanup') {
             steps {
                 echo 'Cleanup'
-                    sh 'docker system prune -f --filter "label!=keep"'}
+                }
             }
         }
     }
