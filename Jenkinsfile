@@ -14,7 +14,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                 sh 'docker build -f Dockerfile --tag school:myapp .'
+                 sh 'docker build -f Dockerfile --tag school:MyApp .'
             }
         }
         stage('Test'){
