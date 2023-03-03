@@ -15,7 +15,9 @@ pipeline {
         stage('Build') {
             steps {
                 script{
-                 app = docker.build("school")
+                 sh = docker build -f Dockerfile --tag MyApp .
+                 sh = docker push MyApp/MyApp
+
                 }
             }
         }
@@ -28,11 +30,7 @@ pipeline {
         stage('Deploy'){
             steps {
                 echo 'Deploy'
-                    script{
-                      docker.withRegistry('http://localhost') {
-                      app.push("${env.BUILD_NUMBER}")
-                      app.push("latest") }
-                      }
+                    sh = docker run --rm -p 8080:8080 -p 50001:50001 --name MyApp MyApp
              }
         }
        }
