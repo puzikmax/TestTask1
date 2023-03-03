@@ -15,6 +15,7 @@ pipeline {
         stage('Build') {
             steps {
                  sh 'docker build -f Dockerfile --tag school:MyApp .'
+                 sh 'docker image tag school:MyApp'
             }
         }
         stage('Test'){
