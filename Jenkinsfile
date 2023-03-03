@@ -21,8 +21,19 @@ pipeline {
         }
         stage('Test'){
             steps {
-                 echo 'Empty'
+                 echo 'SKIP TEST STAGE'
             }
+        }
+
+        stage('Deploy'){
+            steps {
+                echo 'Deploy'
+                    script{
+                      docker.withRegistry('http://localhost') {
+                      app.push("${env.BUILD_NUMBER}")
+                      app.push("latest") }
+                      }
+             }
         }
        }
     }
