@@ -15,8 +15,8 @@ pipeline {
         stage('Build') {
             steps {
                 script{
-                 sh = docker build -f Dockerfile --tag MyApp .
-                 sh = docker push MyApp/MyApp
+                 sh 'docker build -f Dockerfile --tag MyApp .'
+                 sh 'docker push MyApp/MyApp'
 
                 }
             }
@@ -30,7 +30,7 @@ pipeline {
         stage('Deploy'){
             steps {
                 echo 'Deploy'
-                    sh = docker run --rm -p 8080:8080 -p 50001:50001 --name MyApp MyApp
+                    sh 'docker run --rm -p 8080:8080 -p 50001:50001 --name MyApp MyApp'
              }
         }
        }
