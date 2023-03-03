@@ -36,7 +36,7 @@ pipeline {
         stage('Cleanup'){
             steps {
                 echo 'Cleanup'
-                    docker system prune -f --filter "label!=keep"'}
+                    docker system prune -f --filter "label!=keep"}
             }
         }
     }
