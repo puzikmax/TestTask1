@@ -14,7 +14,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                 sh 'docker build -f Dockerfile'
+                 sh 'docker image build -f Dockerfile'
             }
         }
         stage('Test'){
