@@ -6,7 +6,7 @@ pipeline {
     stages {
          stage('Clone repository') {
             steps {
-                script{
+                script {
                 checkout scm
                 }
             }
@@ -14,10 +14,8 @@ pipeline {
 
         stage('Build') {
             steps {
-                script{
-                 sh 'docker build -f Dockerfile --tag MyApp .'
-                 sh 'docker push MyApp/MyApp'
-
+                script {
+                 sh 'docker build -f Dockerfile'
                 }
             }
         }
@@ -30,8 +28,9 @@ pipeline {
         stage('Deploy'){
             steps {
                 echo 'Deploy'
-                    sh 'docker run --rm -p 8080:8080 -p 50001:50001 --name MyApp MyApp'
-             }
+                    script {
+                    sh 'docker run --rm -p 8081:8081 -p 50001:50001 --name school/myapp'}
+                }
+            }
         }
-       }
     }
