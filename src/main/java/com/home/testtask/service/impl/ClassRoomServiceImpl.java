@@ -4,6 +4,8 @@ import com.home.testtask.entity.ClassRoom;
 import com.home.testtask.entity.Student;
 import com.home.testtask.entity.Teacher;
 import com.home.testtask.repository.ClassRoomRepository;
+import com.home.testtask.repository.StudentRepository;
+import com.home.testtask.repository.TeacherRepository;
 import com.home.testtask.service.ClassRoomService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,9 +17,11 @@ import java.util.List;
 public class ClassRoomServiceImpl implements ClassRoomService {
 
     private final ClassRoomRepository classRoomRepository;
+    private final StudentRepository studentRepository;
+    private final TeacherRepository teacherRepository;
     @Override
     public List<ClassRoom> getAllClassRoom() {
-        return null;
+        return classRoomRepository.findAll();
     }
 
     @Override
@@ -37,13 +41,12 @@ public class ClassRoomServiceImpl implements ClassRoomService {
     }
 
     @Override
-    public ClassRoom addStudentToClassRoom(Student student) {
-        return null;
+    public void addStudentToClassRoom(Student student) {
+        studentRepository.save(student);
     }
 
     @Override
-    public ClassRoom addTeacherToClassRoom(Teacher teacher) {
-
-        return null;
+    public void addTeacherToClassRoom(Teacher teacher) {
+        teacherRepository.save(teacher);
     }
 }

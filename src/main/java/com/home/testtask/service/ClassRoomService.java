@@ -13,6 +13,6 @@ public interface ClassRoomService {
     void deleteStudentFromClassRoom(Long id);
     void deleteTeacherFromClassRoom(Long id);
 
-    ClassRoom addStudentToClassRoom(Student student);
-    ClassRoom addTeacherToClassRoom(Teacher teacher);
+    void addStudentToClassRoom(Student student);
+    void addTeacherToClassRoom(Teacher teacher);
 }
